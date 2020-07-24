@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="index.css">
+    <title>WASM Crackme</title>
+</head>
+
+<body>
+    <div class="input_flag">
+        <a class="welcome_text">
+            Find the correct input ;) </br>
+        </a>
+        <input class="form-control" id="flag" placeholder="input here ...">
+        <button id="submit_flag" class="button" onclick="run()"><span>submit</span></button>
+    </div>
+    <noscript>This page contains webassembly and javascript content, please enable javascript in your
+        browser.</noscript>
+    <script src='./wkrakmi.js'></script>
+    <script>
+        const { check_flag } = wasm_bindgen;
+        wasm_bindgen('./wkrakmi_bg.wasm');
+
+        function remove_alertbox() {
+            document.getElementById("alertbox").parentNode.remove();
+        }
+
+        document.getElementById("flag").addEventListener('keypress', function (event) {
+            if (event.keyCode == 13) {
+                run();
+            }
+        });
+
+        async function run() {
+            var flag = document.getElementById("flag").value;
+            if (document.contains(document.getElementById("alertbox"))) {
+                remove_alertbox();
+            }
+            check_flag(flag);
+        }
+    </script>
+</body>
+
+</html>
