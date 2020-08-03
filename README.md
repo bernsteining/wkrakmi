@@ -5,7 +5,7 @@ A Rust program to generate lightweight and standalone WebAssembly crackmes for C
 
 ## Usage
 
-Modify the *challenge* function in *lib.rs* in order to choose your own challenge difficulty.
+Modify the *challenge* function in *[challenge.rs](https://github.com/bernsteining/wkrakmi/blob/master/src/challenge.rs)* in order to choose your own challenge difficulty.
 
 Make sure you have rust toolchain installed and up to date.
 
@@ -15,7 +15,7 @@ If not, install Rust toolchain:
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-Download the *[wasm-bindgen-cli](https://crates.io/crates/wasm-bindgen-cli)* and *[basic-http-server](https://crates.io/crates/basic-http-server)*.
+Download the *[wasm-bindgen-cli](https://crates.io/crates/wasm-bindgen-cli)* and *[basic-http-server](https://crates.io/crates/basic-http-server)* crates.
 
 ```
 cargo install basic-http-server wasm-bindgen-cli
@@ -56,3 +56,5 @@ Using [ngrok](https://ngrok.com/), you can share the challenge online:
 ```
 ngrok http 4000
 ```
+
+It will generate a link on which the challenge will be hosted publicly.
