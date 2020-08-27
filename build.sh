@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # build rust
 cargo build --target wasm32-unknown-unknown --release
@@ -8,8 +8,8 @@ cargo build --target wasm32-unknown-unknown --release
 # update wasm-bindgen to make it work
 wasm-bindgen ./target/wasm32-unknown-unknown/release/wkrakmi.wasm --out-dir build --no-typescript --no-modules
 
-# strip it if you want
-# wasm-strip build/wasm_crackme_bg.wasm
+# strip it with wasm-strip (from wabt: https://github.com/WebAssembly/wabt)
+wasm-strip build/wkrakmi_bg.wasm
 
 # launch http serv
 basic-http-server build/
