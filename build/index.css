@@ -15,11 +15,13 @@ body {
 a.welcome_text{
 	color: DarkMagenta;
 	font-size:40px;
+	white-space: nowrap;
+	font-family: monaco,Consolas,Lucida Console,monospace;
 }
 
 .input_flag{
 
-	width: 250px;
+	width: 500px;
   height: 500px;
 
   position: absolute;
@@ -39,14 +41,44 @@ a.welcome_text{
 
 }
 
+/*Button*/
 .button {
-  background-color:darkmagenta;
-  color:white;
+	position: relative;
+    background-color: darkmagenta;
+    border: none;
+    padding: 7px;
+    width: 100px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
 }
 
-.button:hover {
-  background-color:blueviolet;
-  color: white;
+.button:hover{
+   background:#fff;
+   box-shadow:0px 2px 10px 5px #97B1BF;
+   color:#000;
+}
+
+.button:after {
+    content: "";
+    background:darkmagenta;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
 }
 
 .alert_fail {
@@ -78,4 +110,13 @@ a.welcome_text{
   /* When moving the mouse over the close button */
   .closebtn:hover {
 	color: black;
+  }
+
+  .footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: black;
+	text-align: center;
   }
