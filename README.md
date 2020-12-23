@@ -23,8 +23,15 @@ cargo install basic-http-server wasm-bindgen-cli
 
 *wasm-bindgen* and *cargo* versions must match, make sure *cargo* is up to date:
 
+
 ```
 cargo update
+```
+
+Add wasm to rustup targets:
+
+```
+rustup target add wasm32-unknown-unknown
 ```
 
 Then, run the *build.sh* script. It will compile the Rust code to WebAssembly, and run the challenge on 127.0.0.1:4000.
